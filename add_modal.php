@@ -14,7 +14,12 @@
 						<label class="control-label modal-label">Role:</label>
 					</div>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" name="role" required>
+					    <select class="form-select mb-3"
+		                 name="role" 
+		                 aria-label="Default select example">
+			                <option selected value="user">User</option>
+			                <option value="admin">Admin</option>
+		                </select>
 					</div>
 				</div>
 				<div class="row form-group">
