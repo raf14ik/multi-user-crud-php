@@ -1,6 +1,6 @@
 <?php 
    session_start();
-   include "db_conn.php";
+   include "php/db_conn.php";
    if (isset($_SESSION['username']) && isset($_SESSION['id'])) {   ?>
 
 
@@ -96,7 +96,7 @@
 					</thead>
 					<tbody>
 						<?php
-							include_once('connection.php');
+							include_once('php/connection.php');
 							$sql = "SELECT * FROM users";
 
 							//use for MySQLi-OOP
@@ -179,7 +179,11 @@ $(document).ready(function(){
 			</div>
 			<div class="container">
 	            <h1 class="page-header text-center">Interface User</h1>
-
+				<div class="row">
+				<div class="col-sm-12 col-sm-offset-6">
+				<a href="php/pdf/index.php" data-toggle="modal" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>Imprimer</a>
+			</div>
+			</div>
 			<div class="height10">
 			</div>
 			<div class="row">
@@ -193,7 +197,7 @@ $(document).ready(function(){
 					</thead>
 					<tbody>
 						<?php
-							include_once('connection.php');
+							include_once('php/connection.php');
 							$sql = "SELECT * FROM notes";
 
 							//use for MySQLi-OOP

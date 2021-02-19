@@ -1,13 +1,13 @@
 <?php 
    session_start();
-   include "db_conn.php";
+   include "php/db_conn.php";
    if (isset($_SESSION['username']) && isset($_SESSION['id'])) {   ?>
 
 
 <!DOCTYPE html>
 <html>
 <head>
-	<title>HOME</title>
+	<title>Notes</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="datatable/dataTable.bootstrap.min.css">
@@ -80,9 +80,22 @@
 				}
 			?>
 			</div>
-			<div class="row">
-				<a href="#addnew" data-toggle="modal" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span> Importer Notes</a>
-			</div>
+	<div class="row">
+		<div class="col-md-12">
+                <form action="php/excel/script.php" method="post" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="form-group">
+                              <input type="file" name="excelDoc" id="excelDoc" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="submit" name="uploadBtn" id="uploadBtn" value="Upload Excel" class="btn btn-success" />
+                        </div>
+                    </div>
+                </form>
+        </div>
+	</div>
 			<div class="height10">
 			</div>
 			<div class="row">
@@ -96,7 +109,7 @@
 					</thead>
 					<tbody>
 						<?php
-							include_once('connection.php');
+							include_once('php/connection.php');
 							$sql = "SELECT * FROM notes";
 
 							//use for MySQLi-OOP

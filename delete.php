@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	include_once('connection.php');
+	include_once('php/connection.php');
 
 	if(isset($_GET['id'])){
 		$sql = "DELETE FROM users WHERE id = '".$_GET['id']."'";
