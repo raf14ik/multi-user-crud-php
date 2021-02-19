@@ -13,7 +13,8 @@ class PDF extends FPDF {
 		//is equivalent to:
 		$this->Cell(12);
 		
-		//put logo		
+		//put logo	
+		$this->Image('icon.jpg',10,10,10);	
 		$this->Cell(100,10,'Notes',0,1);
 		
 		//dummy cell to give line spacing
